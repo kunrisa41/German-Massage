@@ -120,21 +120,24 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* Philosophy */}
-        <section className="py-12 md:py-20 px-6 bg-[#FDF5EF]">
-          <div className="max-w-4xl mx-auto text-center">
+        {/* Philosophy - Simplified Clean Layout */}
+        <section className="py-16 md:py-24 px-6 bg-[#FDF5EF]">
+          <div className="max-w-3xl mx-auto text-center">
             <p className="text-[#D4AF37] text-[10px] font-black tracking-[0.4em] uppercase mb-4">{t.philosophy.label}</p>
-            <h2 className="text-2xl md:text-5xl font-serif mb-6 text-[#4B2C20] font-bold">{t.philosophy.title}</h2>
-            <div className="space-y-4 text-[#2D1810]/80 text-base md:text-xl leading-relaxed font-light">
-              <p className="italic font-medium text-[#4B2C20]">{t.philosophy.p1}</p>
-              <p className="max-w-3xl mx-auto text-sm md:text-lg">
-                {t.philosophy.p2_1} <span className="text-[#720e0e] font-bold border-b-2 border-[#D4AF37]/30 not-italic">{t.philosophy.p2_highlight}</span> {t.philosophy.p2_2}
+            <h2 className="text-2xl md:text-4xl font-serif mb-10 text-[#4B2C20] font-bold">{t.philosophy.title}</h2>
+            <div className="space-y-8 text-[#2D1810]/90 text-sm md:text-lg leading-relaxed font-light">
+              <p>{t.philosophy.p1}</p>
+              <p className="font-bold text-[#4B2C20]">
+                {t.philosophy.p2}
+              </p>
+              <p>
+                {t.philosophy.p3}
               </p>
             </div>
           </div>
         </section>
 
-        {/* Treatments Section - Compact Layout */}
+        {/* Treatments Section */}
         <section id="treatments" className="py-16 md:py-20 px-4 bg-[#3E2723]">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-10">
@@ -168,7 +171,6 @@ const App: React.FC = () => {
                         </ul>
                       </div>
 
-                      {/* Conditional rendering of Effect section */}
                       {service.effects && service.effects.length > 0 && (
                         <div className="pt-4 border-t border-stone-100">
                           <p className="text-[9px] font-black tracking-[0.2em] text-[#720e0e] uppercase flex items-center mb-3">

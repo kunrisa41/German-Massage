@@ -27,18 +27,16 @@ export const TRANSLATIONS = {
     },
     philosophy: {
       label: "UNSER FOKUS",
-      title: "Harmonie & Wohlbefinden",
-      p1: "Inmitten des Oerather Mühlenfelds schaffen wir einen exklusiven Rückzugsort nur für Frauen.",
-      p2_1: "Wir konzentrieren uns voll und ganz auf die",
-      p2_highlight: "Nacken-, Schulter- und Rückenmassage",
-      p2_2: "sowie wohltuende Wärmebehandlungen.",
-      p3: "Traditionelle Techniken treffen auf eine moderne, ruhige Atmosphäre."
+      title: "Gezielte Regeneration",
+      p1: "Verspannungen im Nacken- und Rückenbereich beeinträchtigen Wohlbefinden, Schlaf und Konzentration.",
+      p2: "Unsere Behandlungen konzentrieren sich ausschließlich auf diese Zonen – gezielt, professionell und wirkungsvoll.",
+      p3: "Wir verbinden traditionelle Thai-Massagegriffe mit Wärmeanwendungen und Kräuterkraft, um Muskulatur zu lockern, Stress abzubauen und neue Energie zu schenken."
     },
     treatments: {
       label: "UNSERE PREISE",
       title: "Behandlungen",
       duration: "Dauer",
-      price: "PREIS",
+      price: "PREISE",
       bookNow: "Jetzt buchen",
       noticeTitle: "Wichtiger Hinweis",
       noticeText: "Unsere Dienstleistungen dienen ausschließlich der Entspannung und Gesundheitsvorsorge. Keine erotischen Dienstleistungen, keine medizinischen Heilversprechen.",
@@ -84,12 +82,10 @@ export const TRANSLATIONS = {
     },
     philosophy: {
       label: "OUR FOCUS",
-      title: "Harmony & Well-being",
-      p1: "In the heart of Oerather Mühlenfeld, we provide an exclusive retreat for women only.",
-      p2_1: "We focus entirely on the",
-      p2_highlight: "neck, shoulder, and back massage",
-      p2_2: "along with soothing heat treatments.",
-      p3: "Traditional techniques meet a modern, calm atmosphere."
+      title: "Targeted Regeneration",
+      p1: "Tension in the neck and back area affects well-being, sleep and concentration.",
+      p2: "Our treatments focus exclusively on these zones – targeted, professional and effective.",
+      p3: "We combine traditional Thai massage techniques with heat applications and herbal power to loosen muscles, reduce stress and provide new energy."
     },
     treatments: {
       label: "OUR PRICES",

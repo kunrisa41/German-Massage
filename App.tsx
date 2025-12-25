@@ -96,12 +96,12 @@ const App: React.FC = () => {
       </nav>
 
       <main>
-        {/* Hero Section - ผู้หญิงนวดหินร้อนประดับดอกไม้ขาวที่สวยงามที่สุด */}
+        {/* Hero Section */}
         <section id="hero" className="relative h-[65vh] md:h-[75vh] flex items-center justify-center bg-[#FDF5EF] overflow-hidden">
           <div className="absolute inset-0">
              <img 
-               src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=2070&auto=format&fit=crop" 
-               alt="Luxury Thai Massage with Hot Stones and White Flowers" 
+               src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?q=80&w=2070&auto=format&fit=crop" 
+               alt="Woman receiving massage with hot stones and white flowers" 
                className="w-full h-full object-cover brightness-105" 
                loading="eager"
              />
@@ -142,7 +142,7 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* Treatments Section - Clean List View */}
+        {/* Treatments Section */}
         <section id="treatments" className="py-16 md:py-24 px-4 bg-[#3E2723]">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-14">
@@ -162,7 +162,6 @@ const App: React.FC = () => {
                     </p>
                     
                     <div className="space-y-8">
-                      {/* Clean List Style - No Outer Box */}
                       <div>
                         <p className="text-[10px] font-black tracking-[0.2em] text-[#D4AF37] mb-4 uppercase border-b border-[#D4AF37]/15 pb-2 flex items-center">
                           <CheckCircle2 size={14} className="mr-2" />
@@ -217,16 +216,19 @@ const App: React.FC = () => {
               ))}
             </div>
             
-            <div className="mt-14 p-8 md:p-10 rounded-3xl bg-white/5 border border-white/10 text-center max-w-2xl mx-auto shadow-sm">
+            {/* Important Note - พื้นหลังขาวบางๆ ตามคำขอ */}
+            <div className="mt-14 p-8 md:p-10 rounded-3xl bg-white/10 border border-white/20 text-center max-w-2xl mx-auto shadow-sm backdrop-blur-[2px]">
               <p className="text-[10px] font-black uppercase tracking-widest text-[#D4AF37] mb-3 flex items-center justify-center gap-2">
                 <Info size={16} /> {t.treatments.noticeTitle}
               </p>
-              <p className="text-[11px] md:text-xs text-white/70 italic leading-relaxed">{t.treatments.noticeText}</p>
+              <p className="text-[11px] md:text-xs text-white/90 italic leading-relaxed font-light">
+                {t.treatments.noticeText}
+              </p>
             </div>
           </div>
         </section>
 
-        {/* Quality Section - 4 Squares Grid */}
+        {/* Quality Section */}
         <section className="py-20 px-4 bg-[#FDF5EF]">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">

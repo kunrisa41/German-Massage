@@ -41,9 +41,9 @@ export const TRANSLATIONS = {
       price: "PREIS",
       bookNow: "Jetzt buchen",
       noticeTitle: "Wichtiger Hinweis",
-      noticeText: "Unsere Leistungen dienen ausschließlich der Entspannung und Gesundheitsvorsorge. Keine Erotik, keine medizinischen Heilversprechen.",
-      idealFor: "Ideal für Menschen mit:",
-      effectTitle: "Wirkung:",
+      noticeText: "Unsere Dienstleistungen dienen ausschließlich der Entspannung und Gesundheitsvorsorge. Keine erotischen Dienstleistungen, keine medizinischen Heilversprechen.",
+      idealFor: "Diese Behandlung richtet sich gezielt an Menschen mit:",
+      effectTitle: "Wirkung",
       stepsTitle: "Unsere Kombinationsmassage vereint:"
     },
     anspruch: {
@@ -99,8 +99,8 @@ export const TRANSLATIONS = {
       bookNow: "Book Now",
       noticeTitle: "Important Note",
       noticeText: "Our services are exclusively for relaxation and health prevention. No erotic services, no medical healing promises.",
-      idealFor: "Ideal for people with:",
-      effectTitle: "Effect:",
+      idealFor: "This treatment is specifically aimed at people with:",
+      effectTitle: "Effect",
       stepsTitle: "Our combination massage combines:"
     },
     anspruch: {
@@ -153,7 +153,6 @@ export const SERVICES_DATA = {
         "Verbesserte Beweglichkeit",
         "Tiefe Entspannung"
       ],
-      duration: "60 min",
       options: [
         { duration: "60 min", price: "50" }
       ]
@@ -162,14 +161,18 @@ export const SERVICES_DATA = {
       id: 2,
       title: "Kombinationsbehandlung",
       subtitle: "Maximale Wirkung für Nacken & Rücken",
-      description: "👉 Ideal bei starken, langanhaltenden Verspannungen oder zur intensiven Regeneration.",
+      description: "Ideal bei starken, langanhaltenden Verspannungen oder zur intensiven Regeneration durch die Kombination verschiedener Techniken.",
       isCombo: true,
       highlights: [
-        "1. klassische Thai-Nacken-Rückenmassage",
-        "2. intensive Tiefenwärme mit Hot-Stones",
-        "3. entspannender Abschluss mit Kräuterstempeln"
+        "Klassische Thai-Nacken-Rückenmassage",
+        "Intensive Tiefenwärme mit Hot-Stones",
+        "Entspannender Abschluss mit Kräuterstempeln"
       ],
-      duration: "90 / 120 min",
+      effects: [
+        "Ganzheitliche Regeneration",
+        "Lösung tiefsitzender Blockaden",
+        "Anregung des Stoffwechsels"
+      ],
       options: [
         { duration: "90 min", price: "75" },
         { duration: "120 min", price: "100" }
@@ -193,7 +196,6 @@ export const SERVICES_DATA = {
         "Improved mobility",
         "Deep relaxation"
       ],
-      duration: "60 min",
       options: [
         { duration: "60 min", price: "50" }
       ]
@@ -202,14 +204,18 @@ export const SERVICES_DATA = {
       id: 2,
       title: "Combination Treatment",
       subtitle: "Maximum effect for neck & back",
-      description: "👉 Ideal for strong, long-lasting tension or intensive regeneration.",
+      description: "Ideal for strong, long-lasting tension or intensive regeneration through the combination of various techniques.",
       isCombo: true,
       highlights: [
-        "1. Classic Thai Neck & Back Massage",
-        "2. Intensive deep heat with Hot Stones",
-        "3. Relaxing finish with Herbal Compresses"
+        "Classic Thai Neck & Back Massage",
+        "Intensive deep heat with Hot Stones",
+        "Relaxing finish with Herbal Compresses"
       ],
-      duration: "90 / 120 min",
+      effects: [
+        "Holistic regeneration",
+        "Release of deep-seated blockages",
+        "Metabolic stimulation"
+      ],
       options: [
         { duration: "90 min", price: "75" },
         { duration: "120 min", price: "100" }

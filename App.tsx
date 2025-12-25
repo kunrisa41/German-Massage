@@ -94,13 +94,13 @@ const App: React.FC = () => {
       </nav>
 
       <main>
-        {/* Hero Section */}
+        {/* Hero Section - Optimized for Mobile Subject Visibility */}
         <section id="hero" className="relative h-[80vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0">
              <img 
                src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&q=80&w=2000" 
                alt="Traditional Hot Stone Treatment" 
-               className="w-full h-full object-cover" 
+               className="w-full h-full object-cover object-[75%_center] md:object-center" 
                loading="eager"
              />
              <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-[#2D1810]/80"></div>

@@ -47,7 +47,7 @@ export const TRANSLATIONS = {
     anspruch: {
       title: "Unser Qualitätsversprechen",
       items: [
-        { title: "Zertifiziert", text: "Traditionelle Ausbildung mit langjähriger Erfahrung." },
+        { title: "Zertifiziert", text: "Traditionelle Ausbildung with langjähriger Erfahrung." },
         { title: "Individuell", text: "Jede Massage wird auf Ihre Bedürfnisse abgestimmt." },
         { title: "Atmosphäre", text: "Ruhige, hygienische und warme Räumlichkeiten." },
         { title: "Diskret", text: "Ein geschützter Raum exklusiv für Frauen." }
@@ -126,8 +126,8 @@ export const TRANSLATIONS = {
 
 export const SHOP_INFO = {
   address: "Dinslakener Ring 27, 41812 Erkelenz",
-  phone: "0176 43286928",
-  phoneLink: "tel:017643286928",
+  phone: "0151 64319130",
+  phoneLink: "tel:015164319130",
   googleMapsUrl: "https://share.google/pdqx9aad1WD1dfox6"
 };
 
@@ -161,8 +161,8 @@ export const SERVICES_DATA = {
       isCombo: true,
       highlights: [
         "Klassische Thai-Nacken-Rückenmassage",
-        "Intensive Tiefenwärme mit Hot-Stones",
-        "Entspannender Abschluss mit Kräuterstempeln"
+        "Intensive Tiefenwärme with Hot-Stones",
+        "Entspannender Abschluss with Kräuterstempeln"
       ],
       effects: [],
       options: [

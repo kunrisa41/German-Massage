@@ -6,10 +6,8 @@
     <title>Thai Massage für Frauen | Oerather Mühlenfeld</title>
     
     <script>
-      // 1. Environment Setup
       window.process = { env: { NODE_ENV: 'production', API_KEY: '' } };
       
-      // 2. Immediate Error Feedback
       window.onerror = function(msg, url, line, col, error) {
         console.error("Critical:", msg);
         const root = document.getElementById('root');
@@ -37,7 +35,7 @@
       @keyframes spin { to { transform: rotate(360deg); } }
     </style>
 
-    <!-- 3. Clean Import Map: ป้องกันการโหลด React ซ้ำซ้อน -->
+    <!-- FIXED: ลบเวอร์ชันที่ซ้ำซ้อนออกทั้งหมด ให้เหลือแค่ 19.0.0 เพียงชุดเดียว -->
     <script type="importmap">
 {
   "imports": {
@@ -60,7 +58,6 @@
       </div>
     </div>
     
-    <!-- 4. เรียกไฟล์หลัก (ลองไม่ใส่ ./ เพื่อความชัวร์ในบางเซิร์ฟเวอร์) -->
-    <script type="module" src="index.tsx"></script>
+    <script type="module" src="./index.tsx"></script>
   </body>
 </html>

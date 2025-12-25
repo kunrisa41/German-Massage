@@ -1,4 +1,3 @@
-
 export const COLORS = {
   chocolate: "#4B2C20",
   deepBrown: "#2D1810",
@@ -29,7 +28,7 @@ export const TRANSLATIONS = {
       label: "UNSER FOKUS",
       title: "Gezielte Regeneration",
       p1: "Verspannungen im Nacken- und Rückenbereich beeinträchtigen Wohlbefinden, Schlaf und Konzentration.",
-      p2: "Unsere Behandlungen konzentrieren sich ausschließlich auf diese Zonen – gezielt, professionell und wirkungsvoll.",
+      p2: "Unsere Behandlungen konzentrieren sich ausschließlich auf diese Zonen – gezielt, professionell and wirkungsvoll.",
       p3: "Wir verbinden traditionelle Thai-Massagegriffe mit Wärmeanwendungen und Kräuterkraft, um Muskulatur zu lockern, Stress abzubauen und neue Energie zu schenken."
     },
     treatments: {
@@ -128,7 +127,7 @@ export const SHOP_INFO = {
   address: "Dinslakener Ring 27, 41812 Erkelenz",
   phone: "0151 64319130",
   phoneLink: "tel:015164319130",
-  googleMapsUrl: "https://share.google/pdqx9aad1WD1dfox6"
+  googleMapsUrl: "https://maps.app.goo.gl/hzChWPnEkjYf2kYx5?g_st=ic"
 };
 
 export const SERVICES_DATA = {

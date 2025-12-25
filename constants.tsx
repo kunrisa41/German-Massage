@@ -46,7 +46,7 @@ export const TRANSLATIONS = {
     anspruch: {
       title: "Unser Qualitätsversprechen",
       items: [
-        { title: "Zertifiziert", text: "Traditionelle Ausbildung with langjähriger Erfahrung." },
+        { title: "Zertifiziert", text: "Traditionelle Ausbildung mit langjähriger Erfahrung." },
         { title: "Individuell", text: "Jede Massage wird auf Ihre Bedürfnisse abgestimmt." },
         { title: "Atmosphäre", text: "Ruhige, hygienische und warme Räumlichkeiten." },
         { title: "Diskret", text: "Ein geschützter Raum exklusiv für Frauen." }
@@ -57,7 +57,7 @@ export const TRANSLATIONS = {
       title: "Besuchen Sie uns",
       reservation: "Reservierung erforderlich",
       callUs: "Rufen Sie uns an",
-      callCta: "Termin vereinbaren",
+      callCta: "Termิน vereinbaren",
       germany: "41812 Erkelenz",
       openingHours: "Öffnungszeiten: Dienstag – Freitag",
       note: "Nach telefonischer Rücksprache."
@@ -162,8 +162,8 @@ export const SERVICES_DATA = {
       isCombo: true,
       highlights: [
         "Klassische Thai-Nacken-Rückenmassage",
-        "Intensive Tiefenwärme with Hot-Stones",
-        "Entspannender Abschluss with Kräuterstempeln"
+        "Intensive Tiefenwärme mit Hot-Stones",
+        "Entspannender Abschluss mit Kräuterstempeln"
       ],
       effects: [],
       options: [

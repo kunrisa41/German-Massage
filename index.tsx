@@ -2,15 +2,28 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
 
-const container = document.getElementById('root');
+const startApp = () => {
+  const container = document.getElementById('root');
+  if (!container) return;
 
-if (container) {
-  const root = createRoot(container);
-  root.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  );
+  try {
+    const root = createRoot(container);
+    root.render(
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    );
+  } catch (error) {
+    console.error("Mounting Error:", error);
+    container.innerHTML = `<div style="padding: 20px; text-align: center; font-family: sans-serif;">
+      <p>Bitte laden Sie die Seite neu.</p>
+    </div>`;
+  }
+};
+
+// เริ่มการทำงาน
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', startApp);
 } else {
-  console.error("Critical: Root element not found");
+  startApp();
 }

@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <title>Thai Massage für Frauen | Oerather Mühlenfeld</title>
     <script>
-      // ป้องกัน Error จากการเข้าถึง process.env ในบางไลบรารี
       window.process = { env: { NODE_ENV: 'production' } };
-      
       window.onerror = function(msg, url, lineNo, columnNo, error) {
-        console.error('JS Error:', msg, url, lineNo);
+        console.error('JS Error:', msg, url, lineNo, columnNo, error);
         return false;
       };
     </script>
@@ -43,7 +41,7 @@
   </head>
   <body class="antialiased">
     <div id="root">
-      <div style="display: flex; justify-content: center; align-items: center; height: 100vh; font-family: 'Playfair Display', serif; color: #4B2C20;">
+      <div style="display: flex; justify-content: center; align-items: center; height: 100vh; font-family: 'Playfair Display', serif; color: #4B2C20; background-color: #FDF5EF;">
         <p>Laden...</p>
       </div>
     </div>

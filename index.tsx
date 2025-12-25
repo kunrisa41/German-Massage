@@ -5,8 +5,6 @@ import App from './App';
 const container = document.getElementById('root');
 
 if (container) {
-  // ล้างข้อความ Laden... ออกก่อนเริ่มวาด React
-  container.innerHTML = '';
   const root = createRoot(container);
   root.render(
     <React.StrictMode>

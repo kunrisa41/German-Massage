@@ -170,7 +170,7 @@ const App: React.FC = () => {
                         </ul>
                       </div>
 
-                      {/* Restored Wirkung (Effect) Section */}
+                      {/* Display Wirkung (Effect) if it exists for the service */}
                       {service.effects && service.effects.length > 0 && (
                         <div className="pt-4 border-t border-stone-100">
                           <p className="text-[9px] font-black tracking-[0.2em] text-[#720e0e] uppercase flex items-center mb-3">
@@ -207,15 +207,6 @@ const App: React.FC = () => {
                   </div>
                 </div>
               ))}
-            </div>
-
-            <div className="mt-12 p-6 md:p-10 rounded-2xl bg-white/10 border border-white/20 text-center max-w-3xl mx-auto backdrop-blur-md shadow-lg">
-              <p className="text-[10px] font-black uppercase tracking-widest text-[#D4AF37] mb-4 flex items-center justify-center gap-2">
-                <Info size={16} /> {t.treatments.noticeTitle}
-              </p>
-              <p className="text-xs md:text-sm text-white/90 font-light italic leading-relaxed tracking-wide">
-                {t.treatments.noticeText}
-              </p>
             </div>
           </div>
         </section>

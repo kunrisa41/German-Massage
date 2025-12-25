@@ -273,7 +273,14 @@ const App: React.FC = () => {
               <a href={SHOP_INFO.phoneLink} className="w-full max-w-xs py-5 bg-[#720e0e] text-white rounded-xl font-black uppercase text-[10px] tracking-widest shadow-2xl hover:bg-[#4a0a0a] transition-all hover:scale-[1.03]">
                  {t.contact.callCta}
               </a>
-              <p className="mt-8 text-[8px] text-[#D4AF37]/60 uppercase tracking-widest font-black">{t.contact.note}</p>
+              <div className="mt-10 space-y-2">
+                <p className="text-[11px] md:text-xs text-[#D4AF37] uppercase tracking-[0.2em] font-black">
+                  {t.contact.openingHours}
+                </p>
+                <p className="text-[10px] md:text-[11px] text-white/90 uppercase tracking-widest font-bold italic">
+                  {t.contact.note}
+                </p>
+              </div>
             </div>
           </div>
         </section>

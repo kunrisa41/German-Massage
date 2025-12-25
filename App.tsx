@@ -94,12 +94,12 @@ const App: React.FC = () => {
       </nav>
 
       <main>
-        {/* Hero Section - Focused on Hot Stones */}
+        {/* Hero Section */}
         <section id="hero" className="relative h-[80vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0">
              <img 
                src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&q=80&w=2000" 
-               alt="Traditional Hot Stone Treatment for Women" 
+               alt="Traditional Hot Stone Treatment" 
                className="w-full h-full object-cover" 
                loading="eager"
              />
@@ -121,11 +121,11 @@ const App: React.FC = () => {
         </section>
 
         {/* Philosophy */}
-        <section className="py-16 md:py-24 px-6 bg-[#FDF5EF]">
+        <section className="py-12 md:py-20 px-6 bg-[#FDF5EF]">
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-[#D4AF37] text-[10px] font-black tracking-[0.4em] uppercase mb-4">{t.philosophy.label}</p>
-            <h2 className="text-2xl md:text-5xl font-serif mb-8 text-[#4B2C20] font-bold">{t.philosophy.title}</h2>
-            <div className="space-y-6 text-[#2D1810]/80 text-base md:text-xl leading-relaxed font-light">
+            <h2 className="text-2xl md:text-5xl font-serif mb-6 text-[#4B2C20] font-bold">{t.philosophy.title}</h2>
+            <div className="space-y-4 text-[#2D1810]/80 text-base md:text-xl leading-relaxed font-light">
               <p className="italic font-medium text-[#4B2C20]">{t.philosophy.p1}</p>
               <p className="max-w-3xl mx-auto text-sm md:text-lg">
                 {t.philosophy.p2_1} <span className="text-[#720e0e] font-bold border-b-2 border-[#D4AF37]/30 not-italic">{t.philosophy.p2_highlight}</span> {t.philosophy.p2_2}
@@ -134,69 +134,72 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* Treatments Section */}
-        <section id="treatments" className="py-16 md:py-24 px-4 bg-[#3E2723]">
+        {/* Treatments Section - Compact Layout */}
+        <section id="treatments" className="py-16 md:py-20 px-4 bg-[#3E2723]">
           <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <p className="tracking-[0.4em] uppercase text-[10px] font-black mb-3 text-[#D4AF37]">{t.treatments.label}</p>
-              <h2 className="text-3xl md:text-6xl font-serif mb-4 text-white font-bold">{t.treatments.title}</h2>
-              <div className="w-16 h-0.5 mx-auto bg-[#D4AF37]/40"></div>
+            <div className="text-center mb-10">
+              <p className="tracking-[0.4em] uppercase text-[10px] font-black mb-2 text-[#D4AF37]">{t.treatments.label}</p>
+              <h2 className="text-3xl md:text-5xl font-serif mb-3 text-white font-bold">{t.treatments.title}</h2>
+              <div className="w-12 h-0.5 mx-auto bg-[#D4AF37]/40"></div>
             </div>
 
-            <div className="grid gap-12">
+            <div className="grid gap-8">
               {services.map((service) => (
-                <div key={service.id} className="rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-2xl bg-white group border border-white/5">
-                  <div className="md:w-[65%] p-8 md:p-14">
-                    <span className="text-[9px] font-bold tracking-widest uppercase py-1.5 px-4 rounded-full bg-[#3E2723] text-[#D4AF37] mb-6 inline-block">{service.subtitle}</span>
-                    <h3 className="text-2xl md:text-4xl font-serif mb-6 text-[#3E2723] leading-tight font-bold">{service.title}</h3>
-                    <p className="text-[#2D1810]/70 leading-relaxed mb-8 text-sm md:text-base italic">
+                <div key={service.id} className="rounded-2xl overflow-hidden flex flex-col md:flex-row shadow-2xl bg-white border border-white/5">
+                  <div className="md:w-[65%] p-6 md:p-10">
+                    <span className="text-[8px] font-bold tracking-widest uppercase py-1 px-3 rounded-full bg-[#3E2723] text-[#D4AF37] mb-4 inline-block">{service.subtitle}</span>
+                    <h3 className="text-xl md:text-3xl font-serif mb-3 text-[#3E2723] leading-tight font-bold">{service.title}</h3>
+                    <p className="text-[#2D1810]/70 leading-relaxed mb-6 text-sm italic">
                       {service.description}
                     </p>
                     
-                    <div className="space-y-8">
+                    <div className="space-y-6">
                       <div>
-                        <p className="text-[10px] font-black tracking-[0.1em] text-[#D4AF37] uppercase flex items-center mb-4 border-b border-[#D4AF37]/20 pb-1">
-                          <CheckCircle2 size={14} className="mr-2" />
+                        <p className="text-[9px] font-black tracking-[0.1em] text-[#D4AF37] uppercase flex items-center mb-3 border-b border-[#D4AF37]/10 pb-1">
+                          <CheckCircle2 size={12} className="mr-2" />
                           {service.isCombo ? t.treatments.stepsTitle : t.treatments.idealFor}
                         </p>
-                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs md:text-sm">
+                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs md:text-sm">
                           {service.highlights.map((h, i) => (
-                            <li key={i} className="flex items-start text-[#2D1810] font-medium leading-relaxed">
-                              <span className="mr-2 text-[#D4AF37] font-bold text-lg leading-none">•</span> {h}
+                            <li key={i} className="flex items-start text-[#2C1810] font-medium leading-normal">
+                              <span className="mr-2 text-[#D4AF37] font-bold">•</span> {h}
                             </li>
                           ))}
                         </ul>
                       </div>
 
-                      <div className="pt-6 border-t border-stone-100">
-                        <p className="text-[10px] font-black tracking-[0.2em] text-[#720e0e] uppercase flex items-center mb-4">
-                          <Sparkles size={14} className="mr-2" />
-                          {t.treatments.effectTitle}
-                        </p>
-                        <div className="flex flex-wrap gap-3 md:gap-6">
-                          {service.effects.map((e, i) => (
-                            <div key={i} className="flex items-center text-xs md:text-sm text-[#3E2723] font-bold italic bg-[#FDF5EF] px-4 py-2 rounded-full border border-[#D4AF37]/10 whitespace-nowrap">
-                              <span className="mr-2 text-[#D4AF37]">✦</span> {e}
-                            </div>
-                          ))}
+                      {/* Conditional rendering of Effect section */}
+                      {service.effects && service.effects.length > 0 && (
+                        <div className="pt-4 border-t border-stone-100">
+                          <p className="text-[9px] font-black tracking-[0.2em] text-[#720e0e] uppercase flex items-center mb-3">
+                            <Sparkles size={12} className="mr-2" />
+                            {t.treatments.effectTitle}
+                          </p>
+                          <div className="flex flex-wrap gap-2 md:gap-4">
+                            {service.effects.map((e, i) => (
+                              <div key={i} className="flex items-center text-[10px] md:text-xs text-[#3E2723] font-bold italic bg-[#FDF5EF] px-3 py-1.5 rounded-full border border-[#D4AF37]/10 whitespace-nowrap">
+                                <span className="mr-1 text-[#D4AF37]">✦</span> {e}
+                              </div>
+                            ))}
+                          </div>
                         </div>
-                      </div>
+                      )}
                     </div>
                   </div>
                   
-                  <div className="md:w-[35%] p-8 md:p-12 flex flex-col items-center justify-center text-center bg-[#FDF5EF]/50 border-t md:border-t-0 md:border-l border-stone-100">
-                    <div className="text-[10px] uppercase tracking-widest mb-6 text-[#D4AF37] font-black">{t.treatments.price}</div>
-                    <div className="space-y-8 mb-12">
+                  <div className="md:w-[35%] p-6 md:p-10 flex flex-col items-center justify-center text-center bg-[#FDF5EF]/40 border-t md:border-t-0 md:border-l border-stone-100">
+                    <div className="text-[9px] uppercase tracking-widest mb-4 text-[#D4AF37] font-black">{t.treatments.price}</div>
+                    <div className="space-y-6 mb-8">
                       {service.options.map((opt, idx) => (
                         <div key={idx} className="flex flex-col items-center">
-                          <div className="text-4xl md:text-6xl font-serif text-[#3E2723] flex items-baseline leading-none">
-                             <span className="text-lg mr-1 text-[#D4AF37] font-sans font-bold">€</span>{opt.price}
+                          <div className="text-3xl md:text-5xl font-serif text-[#3E2723] flex items-baseline leading-none">
+                             <span className="text-base mr-1 text-[#D4AF37] font-sans font-bold">€</span>{opt.price}
                           </div>
-                          <div className="text-[9px] font-bold text-[#3E2723]/60 uppercase tracking-[0.2em] mt-2 bg-white px-4 py-1.5 rounded-full shadow-sm">{opt.duration}</div>
+                          <div className="text-[8px] font-bold text-[#3E2723]/60 uppercase tracking-[0.1em] mt-1.5 bg-white px-3 py-1 rounded-full shadow-sm">{opt.duration}</div>
                         </div>
                       ))}
                     </div>
-                    <a href={SHOP_INFO.phoneLink} className="w-full py-5 rounded-2xl text-[10px] font-black uppercase tracking-widest text-white shadow-xl bg-[#720e0e] hover:bg-[#4a0a0a] transition-all transform active:scale-95">
+                    <a href={SHOP_INFO.phoneLink} className="w-full py-4 rounded-xl text-[10px] font-black uppercase tracking-widest text-white shadow-xl bg-[#720e0e] hover:bg-[#4a0a0a] transition-all transform active:scale-95">
                       {t.treatments.bookNow}
                     </a>
                   </div>
@@ -204,112 +207,107 @@ const App: React.FC = () => {
               ))}
             </div>
             
-            <div className="mt-16 p-8 md:p-14 rounded-3xl bg-white/10 border border-white/20 text-center max-w-3xl mx-auto backdrop-blur-md shadow-lg">
-              <p className="text-[11px] font-black uppercase tracking-widest text-[#D4AF37] mb-5 flex items-center justify-center gap-3">
-                <Info size={20} /> {t.treatments.noticeTitle}
+            <div className="mt-12 p-6 md:p-10 rounded-2xl bg-white/10 border border-white/20 text-center max-w-3xl mx-auto backdrop-blur-md shadow-lg">
+              <p className="text-[10px] font-black uppercase tracking-widest text-[#D4AF37] mb-4 flex items-center justify-center gap-2">
+                <Info size={16} /> {t.treatments.noticeTitle}
               </p>
-              <p className="text-xs md:text-base text-white/90 font-light italic leading-relaxed tracking-wide">
+              <p className="text-xs md:text-sm text-white/90 font-light italic leading-relaxed tracking-wide">
                 {t.treatments.noticeText}
               </p>
             </div>
           </div>
         </section>
 
-        {/* Quality Features */}
-        <section className="py-20 px-4 bg-[#FDF5EF]">
+        {/* Quality Section */}
+        <section className="py-16 px-4 bg-[#FDF5EF]">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-2xl md:text-5xl font-serif text-[#3E2723] mb-4 font-bold">{t.anspruch.title}</h2>
+            <div className="text-center mb-10">
+              <h2 className="text-2xl md:text-4xl font-serif text-[#3E2723] mb-3 font-bold">{t.anspruch.title}</h2>
               <div className="w-12 h-0.5 mx-auto bg-[#D4AF37]"></div>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
               {t.anspruch.items.map((item, i) => (
-                <div key={i} className="p-6 md:p-8 rounded-2xl bg-white border border-[#D4AF37]/10 text-center hover:shadow-lg transition-all duration-300">
-                  <div className="text-[#D4AF37] mb-5 flex justify-center">
-                    {i === 0 && <Award size={36} />}
-                    {i === 1 && <Clock size={36} />}
-                    {i === 2 && <Thermometer size={36} />}
-                    {i === 3 && <ShieldCheck size={36} />}
+                <div key={i} className="p-6 md:p-8 rounded-xl bg-white border border-[#D4AF37]/5 text-center hover:shadow-lg transition-all duration-300">
+                  <div className="text-[#D4AF37] mb-4 flex justify-center">
+                    {i === 0 && <Award size={32} />}
+                    {i === 1 && <Clock size={32} />}
+                    {i === 2 && <Thermometer size={32} />}
+                    {i === 3 && <ShieldCheck size={32} />}
                   </div>
-                  <h4 className="text-[#3E2723] font-bold uppercase tracking-widest text-[10px] mb-3">{item.title}</h4>
-                  <p className="text-[#2D1810]/70 text-[10px] md:text-sm leading-relaxed font-light">{item.text}</p>
+                  <h4 className="text-[#3E2723] font-bold uppercase tracking-widest text-[9px] mb-2">{item.title}</h4>
+                  <p className="text-[#2D1810]/70 text-[10px] md:text-xs leading-relaxed font-light">{item.text}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Contact Section - Improved Map & Phone display */}
-        <section id="contact" className="py-20 px-4 bg-[#2D1810]">
+        {/* Contact Section */}
+        <section id="contact" className="py-16 md:py-20 px-4 bg-[#2D1810]">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="p-8 md:p-14 rounded-3xl bg-[#FDF5EF] shadow-2xl flex flex-col justify-between border-t-8 border-[#D4AF37]">
+              <div className="p-8 md:p-12 rounded-2xl bg-[#FDF5EF] shadow-2xl flex flex-col justify-between border-t-8 border-[#D4AF37]">
                 <div>
                   <p className="text-[#D4AF37] text-[10px] font-black uppercase tracking-widest mb-6">{t.contact.label}</p>
-                  <h3 className="text-3xl font-serif mb-10 text-[#3E2723] font-bold">{t.contact.title}</h3>
-                  <div className="flex items-start space-x-6 mb-10">
-                    <div className="p-4 rounded-xl bg-[#3E2723] text-[#D4AF37] shrink-0 shadow-lg">
-                      <MapPin size={28} />
+                  <h3 className="text-2xl font-serif mb-8 text-[#3E2723] font-bold">{t.contact.title}</h3>
+                  <div className="flex items-start space-x-5 mb-8">
+                    <div className="p-3 rounded-xl bg-[#3E2723] text-[#D4AF37] shrink-0 shadow-lg">
+                      <MapPin size={24} />
                     </div>
                     <div className="cursor-pointer" onClick={() => window.open(SHOP_INFO.googleMapsUrl, '_blank')}>
-                      <p className="text-[#3E2723] font-bold text-xl md:text-2xl leading-tight hover:text-[#720e0e] transition-colors">{SHOP_INFO.address}</p>
-                      <p className="mt-1 text-[9px] font-black uppercase tracking-widest text-[#D4AF37]">{t.contact.germany}</p>
+                      <p className="text-[#3E2723] font-bold text-lg md:text-xl leading-tight hover:text-[#720e0e] transition-colors">{SHOP_INFO.address}</p>
+                      <p className="mt-1 text-[8px] font-black uppercase tracking-widest text-[#D4AF37]">{t.contact.germany}</p>
                     </div>
                   </div>
                 </div>
                 
-                {/* Clear Map Image */}
                 <div 
-                  className="relative h-64 rounded-2xl overflow-hidden group cursor-pointer border border-[#3E2723]/10 shadow-inner"
+                  className="relative h-56 rounded-xl overflow-hidden group cursor-pointer border border-[#3E2723]/10 shadow-inner"
                   onClick={() => window.open(SHOP_INFO.googleMapsUrl, '_blank')}
                 >
                    <img 
                     src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=1000" 
-                    alt="Erkelenz Location Map Overview" 
-                    className="absolute inset-0 w-full h-full object-cover grayscale brightness-90 transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-110" 
+                    alt="Location Map" 
+                    className="absolute inset-0 w-full h-full object-cover grayscale brightness-90 transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105" 
                    />
-                   <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
+                   <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent"></div>
                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="bg-[#D4AF37]/90 p-5 rounded-full text-white shadow-2xl transition-transform group-hover:scale-110">
-                         <MapPin size={32} />
+                      <div className="bg-[#D4AF37]/90 p-4 rounded-full text-white shadow-2xl transition-transform group-hover:scale-110">
+                         <MapPin size={28} />
                       </div>
-                   </div>
-                   <div className="absolute bottom-4 right-4 bg-white/95 px-4 py-2 rounded-lg text-[9px] font-black uppercase tracking-widest shadow-md">
-                      Route öffnen
                    </div>
                 </div>
               </div>
               
-              <div className="p-8 md:p-14 rounded-3xl flex flex-col justify-center items-center text-center bg-white/5 border border-white/10 shadow-2xl relative overflow-hidden backdrop-blur-sm">
+              <div className="p-8 md:p-12 rounded-2xl flex flex-col justify-center items-center text-center bg-white/5 border border-white/10 shadow-2xl relative overflow-hidden backdrop-blur-sm">
                 <div className="absolute -top-12 -right-12 w-48 h-48 bg-[#D4AF37]/10 rounded-full blur-3xl"></div>
-                <p className="text-[#D4AF37] uppercase tracking-widest text-[11px] font-black mb-6">{t.contact.reservation}</p>
-                <div className="bg-[#D4AF37]/15 p-8 rounded-full mb-8 text-[#D4AF37] shadow-inner">
-                  <Phone size={52} />
+                <p className="text-[#D4AF37] uppercase tracking-widest text-[10px] font-black mb-6">{t.contact.reservation}</p>
+                <div className="bg-[#D4AF37]/15 p-6 rounded-full mb-6 text-[#D4AF37] shadow-inner">
+                  <Phone size={44} />
                 </div>
                 
-                {/* Phone number on single line */}
-                <h2 className="text-2xl sm:text-3xl md:text-6xl font-serif text-white mb-12 tracking-tight font-bold whitespace-nowrap overflow-hidden">
+                <h2 className="text-2xl sm:text-3xl md:text-5xl font-serif text-white mb-10 tracking-tight font-bold whitespace-nowrap overflow-hidden">
                   {SHOP_INFO.phone}
                 </h2>
                 
-                <a href={SHOP_INFO.phoneLink} className="w-full max-sm:px-4 max-w-sm py-6 bg-[#720e0e] text-white rounded-2xl font-black uppercase text-[11px] tracking-widest shadow-2xl hover:bg-[#4a0a0a] transition-all hover:scale-[1.03]">
+                <a href={SHOP_INFO.phoneLink} className="w-full max-w-xs py-5 bg-[#720e0e] text-white rounded-xl font-black uppercase text-[10px] tracking-widest shadow-2xl hover:bg-[#4a0a0a] transition-all hover:scale-[1.03]">
                    {t.contact.callCta}
                 </a>
-                <p className="mt-10 text-[9px] text-[#D4AF37]/60 uppercase tracking-widest font-black">{t.contact.note}</p>
+                <p className="mt-8 text-[8px] text-[#D4AF37]/60 uppercase tracking-widest font-black">{t.contact.note}</p>
               </div>
             </div>
           </div>
         </section>
       </main>
 
-      <footer className="py-20 px-4 bg-[#FDF5EF] border-t border-[#D4AF37]/10 text-center">
+      <footer className="py-16 px-4 bg-[#FDF5EF] border-t border-[#D4AF37]/10 text-center">
         <div className="max-w-6xl mx-auto">
-          <div className="font-serif text-[#720e0e] text-2xl uppercase mb-3 font-bold tracking-tight">
+          <div className="font-serif text-[#720e0e] text-2xl uppercase mb-2 font-bold tracking-tight">
              {t.hero.title}
           </div>
-          <p className="text-[10px] tracking-[0.5em] opacity-50 text-[#3E2723] mb-8 uppercase font-bold">{t.footer.tagline}</p>
-          <div className="w-10 h-px bg-[#D4AF37]/40 mx-auto mb-8"></div>
-          <p className="text-[9px] tracking-widest uppercase opacity-40 text-[#2D1810] font-black">{t.footer.rights}</p>
+          <p className="text-[10px] tracking-[0.4em] opacity-50 text-[#3E2723] mb-6 uppercase font-bold">{t.footer.tagline}</p>
+          <div className="w-8 h-px bg-[#D4AF37]/40 mx-auto mb-6"></div>
+          <p className="text-[8px] tracking-widest uppercase opacity-40 text-[#2D1810] font-black">{t.footer.rights}</p>
         </div>
       </footer>
     </div>

@@ -168,11 +168,7 @@ export const SERVICES_DATA = {
         "Intensive Tiefenwärme mit Hot-Stones",
         "Entspannender Abschluss mit Kräuterstempeln"
       ],
-      effects: [
-        "Ganzheitliche Regeneration",
-        "Lösung tiefsitzender Blockaden",
-        "Anregung des Stoffwechsels"
-      ],
+      effects: [],
       options: [
         { duration: "90 min", price: "75" },
         { duration: "120 min", price: "100" }
@@ -211,11 +207,7 @@ export const SERVICES_DATA = {
         "Intensive deep heat with Hot Stones",
         "Relaxing finish with Herbal Compresses"
       ],
-      effects: [
-        "Holistic regeneration",
-        "Release of deep-seated blockages",
-        "Metabolic stimulation"
-      ],
+      effects: [],
       options: [
         { duration: "90 min", price: "75" },
         { duration: "120 min", price: "100" }

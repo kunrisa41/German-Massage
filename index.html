@@ -6,32 +6,25 @@
     <title>Thai Massage für Frauen | Oerather Mühlenfeld</title>
     
     <script>
-      // ตั้งค่าพื้นฐานป้องกัน Error
-      window.process = { env: { NODE_ENV: 'production' } };
+      // Global process shim
+      window.process = { env: { NODE_ENV: 'production', API_KEY: '' } };
       
-      // ฟังก์ชันแสดง Error แบบด่วนบนหน้าจอ (ช่วย Debug เมื่อหน้าขาว)
-      function showScreenError(title, detail) {
+      // ฟังก์ชันแสดง Error บนหน้าจอเพื่อให้รู้ว่าเกิดอะไรขึ้น (ช่วย Debug)
+      window.onerror = function(msg, url, line, col, error) {
+        console.error("Critical Error:", msg, error);
         const root = document.getElementById('root');
-        if (root) {
+        if (root && (root.innerHTML.includes('Wird geladen') || root.innerHTML === '')) {
           root.innerHTML = `
             <div style="padding:40px; text-align:center; font-family:sans-serif; background:#FDF5EF; height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;">
-              <div style="background:white; padding:30px; border-radius:20px; shadow: 0 10px 25px rgba(0,0,0,0.1); max-width:90%;">
-                <h2 style="color:#720e0e; margin-top:0;">${title}</h2>
-                <p style="color:#4B2C20;">${detail}</p>
-                <button onclick="location.reload()" style="background:#720e0e; color:white; border:none; padding:10px 20px; border-radius:10px; cursor:pointer; font-weight:bold;">Seite neu laden</button>
+              <div style="background:white; padding:30px; border-radius:20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); max-width:90%;">
+                <h2 style="color:#720e0e; margin-top:0;">Ladefehler (Error)</h2>
+                <p style="color:#4B2C20;">Die Anwendung konnte nicht geladen werden.</p>
+                <code style="display:block; background:#f5f5f5; padding:10px; border-radius:5px; font-size:12px; margin:10px 0; overflow:auto; max-width:100%; text-align:left; color: #720e0e;">${msg}</code>
+                <p style="font-size: 11px; color: #999;">Check the console for more details.</p>
+                <button onclick="location.reload()" style="background:#720e0e; color:white; border:none; padding:10px 20px; border-radius:10px; cursor:pointer; font-weight:bold; margin-top:10px;">Erneut versuchen</button>
               </div>
             </div>`;
         }
-      }
-
-      window.onerror = function(msg, url, line, col, error) {
-        console.error("Global Error:", msg);
-        showScreenError("Ladefehler", msg);
-      };
-
-      window.onunhandledrejection = function(event) {
-        console.error("Unhandled Promise:", event.reason);
-        showScreenError("Verbindungsfehler", "Die App konnte nicht gestartet werden. Bitte prüfen Sie Ihre Internetverbindung.");
       };
     </script>
 
@@ -42,9 +35,10 @@
       .font-serif { font-family: 'Playfair Display', serif; }
       .font-sans { font-family: 'Inter', sans-serif; }
       body { margin: 0; padding: 0; background-color: #FDF5EF; }
+      @keyframes spin { to { transform: rotate(360deg); } }
     </style>
 
-    <!-- Import Map แบบ Clean 100% - ห้ามมีเวอร์ชันซ้ำซ้อน -->
+    <!-- Import Map แบบสะอาดที่สุด ห้ามมีเวอร์ชันซ้ำกัน -->
     <script type="importmap">
 {
   "imports": {
@@ -66,10 +60,7 @@
         <p style="font-size: 1.1rem; letter-spacing: 0.1em; font-weight: 500;">Wird geladen...</p>
       </div>
     </div>
-    <style>
-      @keyframes spin { to { transform: rotate(360deg); } }
-    </style>
-    <!-- ใช้ไฟล์ index.tsx เป็นจุดเริ่มต้น -->
+    <!-- ระบุนามสกุลไฟล์ .tsx ให้ชัดเจน -->
     <script type="module" src="index.tsx"></script>
   </body>
 </html>

@@ -1,30 +1,22 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import App from './App';
+import App from './App.tsx';
 
-const startApp = () => {
-  const container = document.getElementById('root');
-  if (!container) return;
+const rootElement = document.getElementById('root');
 
+if (rootElement) {
   try {
-    const root = createRoot(container);
+    const root = createRoot(rootElement);
     root.render(
       <React.StrictMode>
         <App />
       </React.StrictMode>
     );
   } catch (error) {
-    console.error("React Render Error:", error);
-    container.innerHTML = `<div style="padding:40px; font-family:sans-serif; text-align:center;">
-      <h2>Anwendungsfehler</h2>
+    console.error("Rendering error:", error);
+    rootElement.innerHTML = `<div style="padding: 40px; text-align: center; color: #720e0e;">
+      <h2>Startfehler</h2>
       <p>${error instanceof Error ? error.message : 'Unbekannter Fehler'}</p>
     </div>`;
   }
-};
-
-// ตรวจสอบความพร้อมของ DOM ก่อนเริ่ม
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', startApp);
-} else {
-  startApp();
 }

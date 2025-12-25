@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useCallback } from 'react';
 import { 
   Phone, MapPin, Clock, Menu, X, 
@@ -94,7 +93,7 @@ const App: React.FC = () => {
       </nav>
 
       <main>
-        {/* Hero Section - Fixed with proper mobile visibility focus */}
+        {/* Hero Section */}
         <section id="hero" className="relative h-[80vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0">
              <img 
@@ -170,6 +169,23 @@ const App: React.FC = () => {
                           ))}
                         </ul>
                       </div>
+
+                      {/* Restored Wirkung (Effect) Section */}
+                      {service.effects && service.effects.length > 0 && (
+                        <div className="pt-4 border-t border-stone-100">
+                          <p className="text-[9px] font-black tracking-[0.2em] text-[#720e0e] uppercase flex items-center mb-3">
+                            <Sparkles size={12} className="mr-2" />
+                            {t.treatments.effectTitle}
+                          </p>
+                          <div className="flex flex-wrap gap-2 md:gap-4">
+                            {service.effects.map((e, i) => (
+                              <div key={i} className="flex items-center text-[10px] md:text-xs text-[#3E2723] font-bold italic bg-[#FDF5EF] px-3 py-1.5 rounded-full border border-[#D4AF37]/10 whitespace-nowrap">
+                                <span className="mr-1 text-[#D4AF37]">✦</span> {e}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                   
@@ -192,7 +208,7 @@ const App: React.FC = () => {
                 </div>
               ))}
             </div>
-            
+
             <div className="mt-12 p-6 md:p-10 rounded-2xl bg-white/10 border border-white/20 text-center max-w-3xl mx-auto backdrop-blur-md shadow-lg">
               <p className="text-[10px] font-black uppercase tracking-widest text-[#D4AF37] mb-4 flex items-center justify-center gap-2">
                 <Info size={16} /> {t.treatments.noticeTitle}

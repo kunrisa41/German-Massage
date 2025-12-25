@@ -3,10 +3,10 @@ import { GoogleGenAI } from "@google/genai";
 
 export const getWellnessTip = async (lang: 'de' | 'en' = 'de'): Promise<string> => {
   try {
-    // Check if process and env are available safely
+    // Safer check for API Key in browser environment
     const apiKey = typeof process !== 'undefined' && process.env ? process.env.API_KEY : '';
     
-    if (!apiKey) {
+    if (!apiKey || apiKey === 'undefined') {
       return lang === 'de' ? "Entspannung ist der Schlüssel zum Wohlbefinden." : "Relaxation is the key to well-being.";
     }
 

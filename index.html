@@ -6,24 +6,22 @@
     <title>Thai Massage für Frauen | Oerather Mühlenfeld</title>
     
     <script>
-      // Global process shim
+      // 1. Fix for process is not defined
       window.process = { env: { NODE_ENV: 'production', API_KEY: '' } };
       
-      // ฟังก์ชันแสดง Error บนหน้าจอเพื่อให้รู้ว่าเกิดอะไรขึ้น (ช่วย Debug)
+      // 2. Error Reporting
       window.onerror = function(msg, url, line, col, error) {
-        console.error("Critical Error:", msg, error);
+        console.error("Global Error:", msg);
         const root = document.getElementById('root');
-        if (root && (root.innerHTML.includes('Wird geladen') || root.innerHTML === '')) {
-          root.innerHTML = `
-            <div style="padding:40px; text-align:center; font-family:sans-serif; background:#FDF5EF; height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;">
-              <div style="background:white; padding:30px; border-radius:20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); max-width:90%;">
-                <h2 style="color:#720e0e; margin-top:0;">Ladefehler (Error)</h2>
-                <p style="color:#4B2C20;">Die Anwendung konnte nicht geladen werden.</p>
-                <code style="display:block; background:#f5f5f5; padding:10px; border-radius:5px; font-size:12px; margin:10px 0; overflow:auto; max-width:100%; text-align:left; color: #720e0e;">${msg}</code>
-                <p style="font-size: 11px; color: #999;">Check the console for more details.</p>
-                <button onclick="location.reload()" style="background:#720e0e; color:white; border:none; padding:10px 20px; border-radius:10px; cursor:pointer; font-weight:bold; margin-top:10px;">Erneut versuchen</button>
-              </div>
-            </div>`;
+        if (root && (root.innerText.includes('Laden') || root.innerHTML === '')) {
+          root.innerHTML = `<div style="padding:40px;text-align:center;font-family:sans-serif;background:#FDF5EF;height:100vh;display:flex;justify-content:center;align-items:center;">
+            <div style="background:white;padding:30px;border-radius:20px;box-shadow:0 10px 25px rgba(0,0,0,0.1);">
+              <h2 style="color:#720e0e;">Ladefehler</h2>
+              <p>Die Anwendung konnte nicht gestartet werden.</p>
+              <code style="display:block;background:#eee;padding:10px;font-size:12px;color:red;">${msg}</code>
+              <button onclick="location.reload()" style="margin-top:20px;padding:10px 20px;background:#720e0e;color:white;border:none;border-radius:10px;cursor:pointer;">Neu laden</button>
+            </div>
+          </div>`;
         }
       };
     </script>
@@ -38,7 +36,7 @@
       @keyframes spin { to { transform: rotate(360deg); } }
     </style>
 
-    <!-- Import Map แบบสะอาดที่สุด ห้ามมีเวอร์ชันซ้ำกัน -->
+    <!-- 3. Clean Import Map: บังคับใช้เวอร์ชันเดียว 19.0.0 ทั้งหมดเพื่อกัน Error -->
     <script type="importmap">
 {
   "imports": {
@@ -56,11 +54,13 @@
   <body>
     <div id="root">
       <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; font-family: 'Playfair Display', serif; color: #4B2C20; background-color: #FDF5EF;">
-        <div style="width: 40px; height: 40px; border: 3px solid #720e0e; border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px;"></div>
-        <p style="font-size: 1.1rem; letter-spacing: 0.1em; font-weight: 500;">Wird geladen...</p>
+        <div id="spinner" style="width: 40px; height: 40px; border: 3px solid #720e0e; border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px;"></div>
+        <p id="status-text" style="font-size: 1.1rem; letter-spacing: 0.1em; font-weight: 500;">Wird geladen...</p>
+        <noscript><p style="color:red;">Bitte aktivieren Sie JavaScript.</p></noscript>
       </div>
     </div>
-    <!-- ระบุนามสกุลไฟล์ .tsx ให้ชัดเจน -->
+    
+    <!-- 4. ใช้ชื่อไฟล์ตรงๆ -->
     <script type="module" src="index.tsx"></script>
   </body>
 </html>

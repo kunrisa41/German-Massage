@@ -2,21 +2,27 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
 
-const rootElement = document.getElementById('root');
+const startApp = () => {
+  const container = document.getElementById('root');
+  if (!container) return;
 
-if (rootElement) {
   try {
-    const root = createRoot(rootElement);
+    const root = createRoot(container);
     root.render(
       <React.StrictMode>
         <App />
       </React.StrictMode>
     );
-  } catch (error) {
-    console.error("Rendering error:", error);
-    rootElement.innerHTML = `<div style="padding: 40px; text-align: center; color: #720e0e;">
-      <h2>Startfehler</h2>
-      <p>${error instanceof Error ? error.message : 'Unbekannter Fehler'}</p>
-    </div>`;
+    console.log("App mounted successfully");
+  } catch (e) {
+    console.error("Mount error:", e);
+    container.innerHTML = `<div style="padding:50px;color:red;">Error: ${String(e)}</div>`;
   }
+};
+
+// ใช้ความชัวร์ด้วยการเช็ค DOM
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', startApp);
+} else {
+  startApp();
 }

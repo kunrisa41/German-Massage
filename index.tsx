@@ -2,10 +2,9 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
 
-const startApp = () => {
-  const container = document.getElementById('root');
-  if (!container) return;
+const container = document.getElementById('root');
 
+if (container) {
   try {
     const root = createRoot(container);
     root.render(
@@ -14,16 +13,13 @@ const startApp = () => {
       </React.StrictMode>
     );
   } catch (error) {
-    console.error("Mounting Error:", error);
-    container.innerHTML = `<div style="padding: 20px; text-align: center; font-family: sans-serif;">
-      <p>Bitte laden Sie die Seite neu.</p>
-    </div>`;
+    console.error("Critical Failure during React mount:", error);
+    container.innerHTML = `
+      <div style="padding: 40px; text-align: center; font-family: sans-serif;">
+        <p>Ein technischer Fehler ist aufgetreten. Bitte laden Sie die Seite neu.</p>
+      </div>
+    `;
   }
-};
-
-// เริ่มการทำงาน
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', startApp);
 } else {
-  startApp();
+  console.error("Element #root not found in HTML");
 }

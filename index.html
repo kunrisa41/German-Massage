@@ -6,20 +6,32 @@
     <title>Thai Massage für Frauen | Oerather Mühlenfeld</title>
     
     <script>
-      // ป้องกัน Error จาก Library ที่เรียกใช้ process
+      // ตั้งค่าพื้นฐานป้องกัน Error
       window.process = { env: { NODE_ENV: 'production' } };
       
-      // ดักจับ Error รุนแรง
-      window.onerror = function(msg, url, line, col, error) {
-        console.error("Critical Error:", msg);
+      // ฟังก์ชันแสดง Error แบบด่วนบนหน้าจอ (ช่วย Debug เมื่อหน้าขาว)
+      function showScreenError(title, detail) {
         const root = document.getElementById('root');
         if (root) {
-          root.innerHTML = `<div style="padding:40px; text-align:center; font-family:sans-serif; background:#FDF5EF; height:100vh;">
-            <h2 style="color:#720e0e;">Ladefehler</h2>
-            <p>Bitte versuchen Sie, die Seite neu zu laden.</p>
-            <p style="font-size:12px; color:#999;">${msg}</p>
-          </div>`;
+          root.innerHTML = `
+            <div style="padding:40px; text-align:center; font-family:sans-serif; background:#FDF5EF; height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+              <div style="background:white; padding:30px; border-radius:20px; shadow: 0 10px 25px rgba(0,0,0,0.1); max-width:90%;">
+                <h2 style="color:#720e0e; margin-top:0;">${title}</h2>
+                <p style="color:#4B2C20;">${detail}</p>
+                <button onclick="location.reload()" style="background:#720e0e; color:white; border:none; padding:10px 20px; border-radius:10px; cursor:pointer; font-weight:bold;">Seite neu laden</button>
+              </div>
+            </div>`;
         }
+      }
+
+      window.onerror = function(msg, url, line, col, error) {
+        console.error("Global Error:", msg);
+        showScreenError("Ladefehler", msg);
+      };
+
+      window.onunhandledrejection = function(event) {
+        console.error("Unhandled Promise:", event.reason);
+        showScreenError("Verbindungsfehler", "Die App konnte nicht gestartet werden. Bitte prüfen Sie Ihre Internetverbindung.");
       };
     </script>
 
@@ -32,7 +44,7 @@
       body { margin: 0; padding: 0; background-color: #FDF5EF; }
     </style>
 
-    <!-- จัดการเวอร์ชันให้ตรงกัน 100% -->
+    <!-- Import Map แบบ Clean 100% - ห้ามมีเวอร์ชันซ้ำซ้อน -->
     <script type="importmap">
 {
   "imports": {
@@ -50,9 +62,14 @@
   <body>
     <div id="root">
       <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; font-family: 'Playfair Display', serif; color: #4B2C20; background-color: #FDF5EF;">
-        <p style="font-size: 1.2rem; letter-spacing: 0.1em;">Willkommen...</p>
+        <div style="width: 40px; height: 40px; border: 3px solid #720e0e; border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px;"></div>
+        <p style="font-size: 1.1rem; letter-spacing: 0.1em; font-weight: 500;">Wird geladen...</p>
       </div>
     </div>
+    <style>
+      @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+    <!-- ใช้ไฟล์ index.tsx เป็นจุดเริ่มต้น -->
     <script type="module" src="index.tsx"></script>
   </body>
 </html>

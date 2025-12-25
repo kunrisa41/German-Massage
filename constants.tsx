@@ -59,7 +59,7 @@ export const TRANSLATIONS = {
       callUs: "Rufen Sie uns an",
       callCta: "Termin vereinbaren",
       germany: "41812 Erkelenz",
-      note: "Mo-Fr: Termine nach Vereinbarung"
+      note: "Mo-Fr: Nach telefonischer Rücksprache."
     },
     footer: {
       tagline: "Ihre Auszeit im Mühlenfeld",
@@ -114,7 +114,7 @@ export const TRANSLATIONS = {
       callUs: "Call Us",
       callCta: "Book Appointment",
       germany: "41812 Erkelenz",
-      note: "Mon-Fri: By appointment"
+      note: "Mon-Fri: After telephone consultation"
     },
     footer: {
       tagline: "Your retreat in Mühlenfeld",

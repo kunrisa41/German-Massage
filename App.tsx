@@ -4,7 +4,7 @@ import {
   Award, CheckCircle2, ShieldCheck, Info, Thermometer,
   Languages, Sparkles
 } from 'lucide-react';
-import { SHOP_INFO, TRANSLATIONS, SERVICES_DATA } from './constants.tsx';
+import { SHOP_INFO, TRANSLATIONS, SERVICES_DATA } from './constants';
 
 const App: React.FC = () => {
   const [lang, setLang] = useState<'de' | 'en'>('de');

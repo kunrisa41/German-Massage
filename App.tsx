@@ -5,7 +5,7 @@ import {
   Award, CheckCircle2, ShieldCheck, Info, Thermometer,
   Languages, Sparkles
 } from 'lucide-react';
-import { SHOP_INFO, TRANSLATIONS, SERVICES_DATA } from './constants.tsx';
+import { SHOP_INFO, TRANSLATIONS, SERVICES_DATA } from './constants';
 
 const App: React.FC = () => {
   const [lang, setLang] = useState<'de' | 'en'>('de');
@@ -94,12 +94,12 @@ const App: React.FC = () => {
       </nav>
 
       <main>
-        {/* Hero Section - Optimized for Mobile Subject Visibility */}
+        {/* Hero Section - Fixed with proper mobile visibility focus */}
         <section id="hero" className="relative h-[80vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0">
              <img 
                src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&q=80&w=2000" 
-               alt="Traditional Hot Stone Treatment" 
+               alt="Traditional Thai Massage" 
                className="w-full h-full object-cover object-[75%_center] md:object-center" 
                loading="eager"
              />
@@ -120,7 +120,7 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* Philosophy - Simplified Clean Layout */}
+        {/* Philosophy */}
         <section className="py-16 md:py-24 px-6 bg-[#FDF5EF]">
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-[#D4AF37] text-[10px] font-black tracking-[0.4em] uppercase mb-4">{t.philosophy.label}</p>
@@ -170,22 +170,6 @@ const App: React.FC = () => {
                           ))}
                         </ul>
                       </div>
-
-                      {service.effects && service.effects.length > 0 && (
-                        <div className="pt-4 border-t border-stone-100">
-                          <p className="text-[9px] font-black tracking-[0.2em] text-[#720e0e] uppercase flex items-center mb-3">
-                            <Sparkles size={12} className="mr-2" />
-                            {t.treatments.effectTitle}
-                          </p>
-                          <div className="flex flex-wrap gap-2 md:gap-4">
-                            {service.effects.map((e, i) => (
-                              <div key={i} className="flex items-center text-[10px] md:text-xs text-[#3E2723] font-bold italic bg-[#FDF5EF] px-3 py-1.5 rounded-full border border-[#D4AF37]/10 whitespace-nowrap">
-                                <span className="mr-1 text-[#D4AF37]">✦</span> {e}
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
                     </div>
                   </div>
                   
@@ -222,81 +206,67 @@ const App: React.FC = () => {
 
         {/* Quality Section */}
         <section className="py-16 px-4 bg-[#FDF5EF]">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-10">
-              <h2 className="text-2xl md:text-4xl font-serif text-[#3E2723] mb-3 font-bold">{t.anspruch.title}</h2>
-              <div className="w-12 h-0.5 mx-auto bg-[#D4AF37]"></div>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-              {t.anspruch.items.map((item, i) => (
-                <div key={i} className="p-6 md:p-8 rounded-xl bg-white border border-[#D4AF37]/5 text-center hover:shadow-lg transition-all duration-300">
-                  <div className="text-[#D4AF37] mb-4 flex justify-center">
-                    {i === 0 && <Award size={32} />}
-                    {i === 1 && <Clock size={32} />}
-                    {i === 2 && <Thermometer size={32} />}
-                    {i === 3 && <ShieldCheck size={32} />}
-                  </div>
-                  <h4 className="text-[#3E2723] font-bold uppercase tracking-widest text-[9px] mb-2">{item.title}</h4>
-                  <p className="text-[#2D1810]/70 text-[10px] md:text-xs leading-relaxed font-light">{item.text}</p>
+          <div className="max-w-6xl mx-auto text-center mb-10">
+            <h2 className="text-2xl md:text-4xl font-serif text-[#3E2723] mb-3 font-bold">{t.anspruch.title}</h2>
+            <div className="w-12 h-0.5 mx-auto bg-[#D4AF37]"></div>
+          </div>
+          <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            {t.anspruch.items.map((item, i) => (
+              <div key={i} className="p-6 md:p-8 rounded-xl bg-white border border-[#D4AF37]/5 text-center hover:shadow-lg transition-all duration-300">
+                <div className="text-[#D4AF37] mb-4 flex justify-center">
+                  {i === 0 && <Award size={32} />}
+                  {i === 1 && <Clock size={32} />}
+                  {i === 2 && <Thermometer size={32} />}
+                  {i === 3 && <ShieldCheck size={32} />}
                 </div>
-              ))}
-            </div>
+                <h4 className="text-[#3E2723] font-bold uppercase tracking-widest text-[9px] mb-2">{item.title}</h4>
+                <p className="text-[#2D1810]/70 text-[10px] md:text-xs leading-relaxed font-light">{item.text}</p>
+              </div>
+            ))}
           </div>
         </section>
 
         {/* Contact Section */}
         <section id="contact" className="py-16 md:py-20 px-4 bg-[#2D1810]">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="p-8 md:p-12 rounded-2xl bg-[#FDF5EF] shadow-2xl flex flex-col justify-between border-t-8 border-[#D4AF37]">
-                <div>
-                  <p className="text-[#D4AF37] text-[10px] font-black uppercase tracking-widest mb-6">{t.contact.label}</p>
-                  <h3 className="text-2xl font-serif mb-8 text-[#3E2723] font-bold">{t.contact.title}</h3>
-                  <div className="flex items-start space-x-5 mb-8">
-                    <div className="p-3 rounded-xl bg-[#3E2723] text-[#D4AF37] shrink-0 shadow-lg">
-                      <MapPin size={24} />
-                    </div>
-                    <div className="cursor-pointer" onClick={() => window.open(SHOP_INFO.googleMapsUrl, '_blank')}>
-                      <p className="text-[#3E2723] font-bold text-lg md:text-xl leading-tight hover:text-[#720e0e] transition-colors">{SHOP_INFO.address}</p>
-                      <p className="mt-1 text-[8px] font-black uppercase tracking-widest text-[#D4AF37]">{t.contact.germany}</p>
-                    </div>
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+            <div className="p-8 md:p-12 rounded-2xl bg-[#FDF5EF] shadow-2xl flex flex-col justify-between border-t-8 border-[#D4AF37]">
+              <div>
+                <p className="text-[#D4AF37] text-[10px] font-black uppercase tracking-widest mb-6">{t.contact.label}</p>
+                <h3 className="text-2xl font-serif mb-8 text-[#3E2723] font-bold">{t.contact.title}</h3>
+                <div className="flex items-start space-x-5 mb-8">
+                  <div className="p-3 rounded-xl bg-[#3E2723] text-[#D4AF37] shrink-0 shadow-lg">
+                    <MapPin size={24} />
+                  </div>
+                  <div className="cursor-pointer" onClick={() => window.open(SHOP_INFO.googleMapsUrl, '_blank')}>
+                    <p className="text-[#3E2723] font-bold text-lg md:text-xl leading-tight hover:text-[#720e0e] transition-colors">{SHOP_INFO.address}</p>
+                    <p className="mt-1 text-[8px] font-black uppercase tracking-widest text-[#D4AF37]">{t.contact.germany}</p>
                   </div>
                 </div>
-                
-                <div 
-                  className="relative h-56 rounded-xl overflow-hidden group cursor-pointer border border-[#3E2723]/10 shadow-inner"
-                  onClick={() => window.open(SHOP_INFO.googleMapsUrl, '_blank')}
-                >
-                   <img 
-                    src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=1000" 
-                    alt="Location Map" 
-                    className="absolute inset-0 w-full h-full object-cover grayscale brightness-90 transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105" 
-                   />
-                   <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent"></div>
-                   <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="bg-[#D4AF37]/90 p-4 rounded-full text-white shadow-2xl transition-transform group-hover:scale-110">
-                         <MapPin size={28} />
-                      </div>
-                   </div>
-                </div>
               </div>
-              
-              <div className="p-8 md:p-12 rounded-2xl flex flex-col justify-center items-center text-center bg-white/5 border border-white/10 shadow-2xl relative overflow-hidden backdrop-blur-sm">
-                <div className="absolute -top-12 -right-12 w-48 h-48 bg-[#D4AF37]/10 rounded-full blur-3xl"></div>
-                <p className="text-[#D4AF37] uppercase tracking-widest text-[10px] font-black mb-6">{t.contact.reservation}</p>
-                <div className="bg-[#D4AF37]/15 p-6 rounded-full mb-6 text-[#D4AF37] shadow-inner">
-                  <Phone size={44} />
-                </div>
-                
-                <h2 className="text-2xl sm:text-3xl md:text-5xl font-serif text-white mb-10 tracking-tight font-bold whitespace-nowrap overflow-hidden">
-                  {SHOP_INFO.phone}
-                </h2>
-                
-                <a href={SHOP_INFO.phoneLink} className="w-full max-w-xs py-5 bg-[#720e0e] text-white rounded-xl font-black uppercase text-[10px] tracking-widest shadow-2xl hover:bg-[#4a0a0a] transition-all hover:scale-[1.03]">
-                   {t.contact.callCta}
-                </a>
-                <p className="mt-8 text-[8px] text-[#D4AF37]/60 uppercase tracking-widest font-black">{t.contact.note}</p>
+              <div 
+                className="relative h-56 rounded-xl overflow-hidden group cursor-pointer border border-[#3E2723]/10 shadow-inner"
+                onClick={() => window.open(SHOP_INFO.googleMapsUrl, '_blank')}
+              >
+                 <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=1000" alt="Location Map" className="absolute inset-0 w-full h-full object-cover grayscale brightness-90 transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105" />
+                 <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="bg-[#D4AF37]/90 p-4 rounded-full text-white shadow-2xl transition-transform group-hover:scale-110">
+                       <MapPin size={28} />
+                    </div>
+                 </div>
               </div>
+            </div>
+            
+            <div className="p-8 md:p-12 rounded-2xl flex flex-col justify-center items-center text-center bg-white/5 border border-white/10 shadow-2xl relative overflow-hidden backdrop-blur-sm">
+              <div className="absolute -top-12 -right-12 w-48 h-48 bg-[#D4AF37]/10 rounded-full blur-3xl"></div>
+              <p className="text-[#D4AF37] uppercase tracking-widest text-[10px] font-black mb-6">{t.contact.reservation}</p>
+              <div className="bg-[#D4AF37]/15 p-6 rounded-full mb-6 text-[#D4AF37] shadow-inner">
+                <Phone size={44} />
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-serif text-white mb-10 tracking-tight font-bold whitespace-nowrap overflow-hidden">{SHOP_INFO.phone}</h2>
+              <a href={SHOP_INFO.phoneLink} className="w-full max-w-xs py-5 bg-[#720e0e] text-white rounded-xl font-black uppercase text-[10px] tracking-widest shadow-2xl hover:bg-[#4a0a0a] transition-all hover:scale-[1.03]">
+                 {t.contact.callCta}
+              </a>
+              <p className="mt-8 text-[8px] text-[#D4AF37]/60 uppercase tracking-widest font-black">{t.contact.note}</p>
             </div>
           </div>
         </section>
@@ -304,11 +274,8 @@ const App: React.FC = () => {
 
       <footer className="py-16 px-4 bg-[#FDF5EF] border-t border-[#D4AF37]/10 text-center">
         <div className="max-w-6xl mx-auto">
-          <div className="font-serif text-[#720e0e] text-2xl uppercase mb-2 font-bold tracking-tight">
-             {t.hero.title}
-          </div>
+          <div className="font-serif text-[#720e0e] text-2xl uppercase mb-2 font-bold tracking-tight">{t.hero.title}</div>
           <p className="text-[10px] tracking-[0.4em] opacity-50 text-[#3E2723] mb-6 uppercase font-bold">{t.footer.tagline}</p>
-          <div className="w-8 h-px bg-[#D4AF37]/40 mx-auto mb-6"></div>
           <p className="text-[8px] tracking-widest uppercase opacity-40 text-[#2D1810] font-black">{t.footer.rights}</p>
         </div>
       </footer>

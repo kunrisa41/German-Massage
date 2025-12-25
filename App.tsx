@@ -94,12 +94,12 @@ const App: React.FC = () => {
       </nav>
 
       <main>
-        {/* Hero Section - Fixed Image URL with Hot Stones on Back */}
+        {/* Hero Section - Focused on Hot Stones */}
         <section id="hero" className="relative h-[80vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0">
              <img 
                src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&q=80&w=2000" 
-               alt="Hot Stone Spa Treatment for Women" 
+               alt="Traditional Hot Stone Treatment for Women" 
                className="w-full h-full object-cover" 
                loading="eager"
              />
@@ -107,9 +107,9 @@ const App: React.FC = () => {
           </div>
           
           <div className="relative z-10 text-center px-6 max-w-4xl animate-fadeIn">
-            <h1 className="font-serif mb-4 leading-tight text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)]">
-               <span className="text-3xl md:text-7xl block font-bold mb-2">{t.hero.title}</span>
-               <span className="text-lg md:text-2xl block opacity-95 font-light italic tracking-wider uppercase">{t.hero.subtitle}</span>
+            <h1 className="font-serif mb-4 leading-tight text-white drop-shadow-[0_2px_15px_rgba(0,0,0,0.6)]">
+               <span className="text-3xl sm:text-4xl md:text-7xl block font-bold mb-2">{t.hero.title}</span>
+               <span className="text-base sm:text-lg md:text-2xl block opacity-95 font-light italic tracking-wider uppercase">{t.hero.subtitle}</span>
             </h1>
             <p className="text-white text-[10px] md:text-base mb-8 font-medium tracking-[0.2em] uppercase opacity-90">
               {t.hero.tagline}
@@ -134,7 +134,7 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* Treatments - Mobile Balanced & Fixed Content */}
+        {/* Treatments Section */}
         <section id="treatments" className="py-16 md:py-24 px-4 bg-[#3E2723]">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
@@ -168,15 +168,14 @@ const App: React.FC = () => {
                         </ul>
                       </div>
 
-                      {/* Wirkung Section - Moved down with line as requested */}
                       <div className="pt-6 border-t border-stone-100">
                         <p className="text-[10px] font-black tracking-[0.2em] text-[#720e0e] uppercase flex items-center mb-4">
                           <Sparkles size={14} className="mr-2" />
                           {t.treatments.effectTitle}
                         </p>
-                        <div className="flex flex-wrap gap-4 md:gap-8">
+                        <div className="flex flex-wrap gap-3 md:gap-6">
                           {service.effects.map((e, i) => (
-                            <div key={i} className="flex items-center text-xs md:text-sm text-[#3E2723] font-bold italic bg-[#FDF5EF] px-4 py-2 rounded-full border border-[#D4AF37]/10">
+                            <div key={i} className="flex items-center text-xs md:text-sm text-[#3E2723] font-bold italic bg-[#FDF5EF] px-4 py-2 rounded-full border border-[#D4AF37]/10 whitespace-nowrap">
                               <span className="mr-2 text-[#D4AF37]">✦</span> {e}
                             </div>
                           ))}
@@ -205,7 +204,6 @@ const App: React.FC = () => {
               ))}
             </div>
             
-            {/* Important Note - bg-white/10 with blur */}
             <div className="mt-16 p-8 md:p-14 rounded-3xl bg-white/10 border border-white/20 text-center max-w-3xl mx-auto backdrop-blur-md shadow-lg">
               <p className="text-[11px] font-black uppercase tracking-widest text-[#D4AF37] mb-5 flex items-center justify-center gap-3">
                 <Info size={20} /> {t.treatments.noticeTitle}
@@ -217,7 +215,7 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* Quality Section */}
+        {/* Quality Features */}
         <section className="py-20 px-4 bg-[#FDF5EF]">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
@@ -241,7 +239,7 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* Contact Section - Clean Map Image */}
+        {/* Contact Section - Improved Map & Phone display */}
         <section id="contact" className="py-20 px-4 bg-[#2D1810]">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8">
@@ -259,18 +257,24 @@ const App: React.FC = () => {
                     </div>
                   </div>
                 </div>
+                
+                {/* Clear Map Image */}
                 <div 
                   className="relative h-64 rounded-2xl overflow-hidden group cursor-pointer border border-[#3E2723]/10 shadow-inner"
                   onClick={() => window.open(SHOP_INFO.googleMapsUrl, '_blank')}
                 >
-                   <img src="https://images.unsplash.com/photo-1476973422084-e0fa66ff9456?auto=format&fit=crop&q=80&w=1000" alt="Technical Map Overview" className="absolute inset-0 w-full h-full object-cover grayscale brightness-90 transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105" />
-                   <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent"></div>
+                   <img 
+                    src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=1000" 
+                    alt="Erkelenz Location Map Overview" 
+                    className="absolute inset-0 w-full h-full object-cover grayscale brightness-90 transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-110" 
+                   />
+                   <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="bg-[#D4AF37] p-5 rounded-full text-white shadow-2xl transition-transform group-hover:scale-110">
+                      <div className="bg-[#D4AF37]/90 p-5 rounded-full text-white shadow-2xl transition-transform group-hover:scale-110">
                          <MapPin size={32} />
                       </div>
                    </div>
-                   <div className="absolute bottom-4 right-4 bg-white/90 px-4 py-2 rounded-lg text-[9px] font-black uppercase tracking-widest shadow-md">
+                   <div className="absolute bottom-4 right-4 bg-white/95 px-4 py-2 rounded-lg text-[9px] font-black uppercase tracking-widest shadow-md">
                       Route öffnen
                    </div>
                 </div>
@@ -282,8 +286,13 @@ const App: React.FC = () => {
                 <div className="bg-[#D4AF37]/15 p-8 rounded-full mb-8 text-[#D4AF37] shadow-inner">
                   <Phone size={52} />
                 </div>
-                <h2 className="text-3xl md:text-6xl font-serif text-white mb-12 tracking-tight font-bold">{SHOP_INFO.phone}</h2>
-                <a href={SHOP_INFO.phoneLink} className="w-full max-w-sm py-6 bg-[#720e0e] text-white rounded-2xl font-black uppercase text-[11px] tracking-widest shadow-2xl hover:bg-[#4a0a0a] transition-all hover:scale-[1.03]">
+                
+                {/* Phone number on single line */}
+                <h2 className="text-2xl sm:text-3xl md:text-6xl font-serif text-white mb-12 tracking-tight font-bold whitespace-nowrap overflow-hidden">
+                  {SHOP_INFO.phone}
+                </h2>
+                
+                <a href={SHOP_INFO.phoneLink} className="w-full max-sm:px-4 max-w-sm py-6 bg-[#720e0e] text-white rounded-2xl font-black uppercase text-[11px] tracking-widest shadow-2xl hover:bg-[#4a0a0a] transition-all hover:scale-[1.03]">
                    {t.contact.callCta}
                 </a>
                 <p className="mt-10 text-[9px] text-[#D4AF37]/60 uppercase tracking-widest font-black">{t.contact.note}</p>

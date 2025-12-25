@@ -96,12 +96,12 @@ const App: React.FC = () => {
       </nav>
 
       <main>
-        {/* Hero Section - Massage & Spa Themed Flowers */}
+        {/* Hero Section - Massage & Spa Themed Flowers (Bright & Fresh) */}
         <section id="hero" className="relative h-[60vh] md:h-[70vh] flex items-center justify-center bg-white overflow-hidden">
           <div className="absolute inset-0">
              <img 
                src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=2070&auto=format&fit=crop" 
-               alt="Frangipani and Spa Stones" 
+               alt="Spa Flowers and Wellness" 
                className="w-full h-full object-cover brightness-105" 
              />
           </div>
@@ -141,7 +141,7 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* Treatments Section - Clean List View, No Nested Boxes */}
+        {/* Treatments Section - Clean List View (No Nested Boxes) */}
         <section id="treatments" className="py-12 md:py-16 px-4 bg-[#3E2723]">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-10">
@@ -161,13 +161,14 @@ const App: React.FC = () => {
                     </p>
                     
                     <div className="space-y-6">
+                      {/* รายการที่เป็น Clean List (ไม่มีกล่องซ้อน) */}
                       <div>
-                        <p className="text-[9px] font-black tracking-widest text-[#D4AF37] mb-2 uppercase border-b border-[#D4AF37]/10 pb-1">
+                        <p className="text-[9px] font-black tracking-widest text-[#D4AF37] mb-3 uppercase border-b border-[#D4AF37]/10 pb-1">
                           {service.isCombo ? t.treatments.stepsTitle : t.treatments.idealFor}
                         </p>
-                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5">
+                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
                           {service.highlights.map((h, i) => (
-                            <li key={i} className="flex items-start text-xs text-[#2D1810]/90 font-medium">
+                            <li key={i} className="flex items-start text-xs text-[#2D1810]/90 font-medium leading-snug">
                               <CheckCircle2 size={12} className="mr-2 text-[#D4AF37] mt-0.5 shrink-0" />
                               {h}
                             </li>
@@ -177,12 +178,12 @@ const App: React.FC = () => {
 
                       {service.effects && (
                         <div>
-                          <p className="text-[9px] font-black tracking-widest text-[#D4AF37] mb-2 uppercase border-b border-[#D4AF37]/10 pb-1">
+                          <p className="text-[9px] font-black tracking-widest text-[#D4AF37] mb-3 uppercase border-b border-[#D4AF37]/10 pb-1">
                             {t.treatments.effectTitle}
                           </p>
-                          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5">
+                          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
                             {service.effects.map((e, i) => (
-                              <li key={i} className="flex items-start text-xs text-[#3E2723] font-bold">
+                              <li key={i} className="flex items-start text-xs text-[#3E2723] font-bold leading-snug">
                                 <Sparkles size={12} className="mr-2 text-[#D4AF37] mt-0.5 shrink-0" />
                                 {e}
                               </li>
@@ -223,7 +224,7 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* Quality Section - Fixed 4-box Grid */}
+        {/* Quality Section - 4 Boxes Grid */}
         <section className="py-12 px-4 bg-[#FDF5EF]">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-8">
@@ -232,8 +233,8 @@ const App: React.FC = () => {
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {t.anspruch.items.map((item, i) => (
-                <div key={i} className="p-5 rounded-2xl bg-white border border-[#D4AF37]/10 text-center hover:shadow-md transition-all group aspect-square flex flex-col justify-center items-center">
-                  <div className="text-[#D4AF37] mb-3 flex justify-center group-hover:scale-110 transition-transform">
+                <div key={i} className="p-5 rounded-2xl bg-white border border-[#D4AF37]/10 text-center hover:shadow-md transition-all aspect-square flex flex-col justify-center items-center">
+                  <div className="text-[#D4AF37] mb-3 flex justify-center">
                     {i === 0 && <Award size={28} />}
                     {i === 1 && <Clock size={28} />}
                     {i === 2 && <Thermometer size={28} />}

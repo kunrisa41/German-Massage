@@ -5,32 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <title>Thai Massage für Frauen | Oerather Mühlenfeld</title>
     
-    <!-- 1. ตั้งค่า Environment ก่อนโหลด Library อื่นๆ -->
     <script>
+      // ป้องกัน Error จาก Library ที่เรียกใช้ process
       window.process = { env: { NODE_ENV: 'production' } };
+      
+      // ดักจับ Error รุนแรง
       window.onerror = function(msg, url, line, col, error) {
-        console.error("Runtime Error: " + msg + "\nAt: " + url + ":" + line);
+        console.error("Critical Error:", msg);
         const root = document.getElementById('root');
-        if (root && root.innerHTML.includes('Laden')) {
-          root.innerHTML = '<div style="padding:40px;text-align:center;font-family:sans-serif;color:#4B2C20;">' +
-            '<h3>Entschuldigung</h3><p>Die Seite konnteไม่สามารถโหลดได้ กรุณารีเฟรชหน้าจออีกครั้ง</p>' +
-            '<small style="color:#999">' + msg + '</small></div>';
+        if (root) {
+          root.innerHTML = `<div style="padding:40px; text-align:center; font-family:sans-serif; background:#FDF5EF; height:100vh;">
+            <h2 style="color:#720e0e;">Ladefehler</h2>
+            <p>Bitte versuchen Sie, die Seite neu zu laden.</p>
+            <p style="font-size:12px; color:#999;">${msg}</p>
+          </div>`;
         }
-        return false;
       };
     </script>
 
-    <!-- 2. CSS & Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    
     <style>
       .font-serif { font-family: 'Playfair Display', serif; }
       .font-sans { font-family: 'Inter', sans-serif; }
-      html { scroll-behavior: smooth; }
       body { margin: 0; padding: 0; background-color: #FDF5EF; }
     </style>
 
-    <!-- 3. Import Map - ใช้เวอร์ชันคงที่เพียงชุดเดียว -->
+    <!-- จัดการเวอร์ชันให้ตรงกัน 100% -->
     <script type="importmap">
 {
   "imports": {
@@ -45,15 +47,12 @@
 }
 </script>
   </head>
-  <body class="antialiased">
+  <body>
     <div id="root">
-      <!-- แสดงข้อความนี้จนกว่า React จะโหลดเสร็จ -->
       <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; font-family: 'Playfair Display', serif; color: #4B2C20; background-color: #FDF5EF;">
-        <p style="font-size: 1.2rem; letter-spacing: 0.1em; animate: pulse 2s infinite;">Laden...</p>
+        <p style="font-size: 1.2rem; letter-spacing: 0.1em;">Willkommen...</p>
       </div>
     </div>
-    
-    <!-- 4. โหลดแอปหลัก -->
     <script type="module" src="index.tsx"></script>
   </body>
 </html>
